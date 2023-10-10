@@ -8,6 +8,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Hello World!</p>
+    <div class="booksContainer"></div>
+    <button class="addBookButton">New Book</button>
+    <form class="bookForm">
+        <fieldset class="formInputContainer">
+            <legend><h3>Enter book details:</h3></legend>
+            <div>
+                <label for="bookTitle">Title:</label>
+                <input type="text" id="bookTitle" name="title" required>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div>
+                <label for="pageCount">Page count:</label>
+                <input type="number" id="pageCount" name="pageCount" required>
+            </div>
+            <fieldset class="radioSec">
+                <legend>Have you read before?</legend>
+                    <div>
+                        <label for="yes">Yes</label>
+                        <input type="radio" name="readYN" id="yes" class="pagesRadio">
+                    </div>
+                    <div>
+                        <label for="no">No</label>
+                        <input type="radio" name="readYN" id="no" class="pagesRadio">
+                    </div>
+            </fieldset>
+            <button class="submitButton" type="reset">Submit</button>
+        </fieldset>
+    </form>
 </body>
 </html>
