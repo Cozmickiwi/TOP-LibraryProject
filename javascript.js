@@ -60,21 +60,31 @@ const titleInput = document.getElementById('bookTitle');
 const authorInput = document.getElementById('author');
 const pageCount = document.getElementById('pageCount');
 const radioSec = document.querySelector('.pagesRadio');
-const radioY = document.getElementById("yes").value = "yes";
-const radioN = document.getElementById("no").value = "no";
+//const radioY = document.getElementById("yes").value = "no";
 let newBookTime = false;
+function handleForm(event) { 
+    event.preventDefault(); 
+    if(newBookTime == true){
+        let radioSelection;
+        if(document.getElementById('yes').checked) {
+            radioSelection = 'Have read';
+        }
+        else if (document.getElementById('no').checked) {
+            radioSelection = 'Not read';
+        }
+        const newBook = new book((titleInput.value), (authorInput.value), (pageCount.value), (radioSelection));
+        bookForm.style.display = 'none';
+        bookForm.style.zIndex = '0';
+        bookForm.reset();
+        myLibrary.push(newBook);
+        addLibraryToPage();
+        
+    } 
+}
 addBookButton.addEventListener('click', ()=>{
     newBookTime = true;
     bookForm.style.display = 'flex';
     bookForm.style.zIndex = '2';
-    submitButton.addEventListener('click', ()=> {
-        if(newBookTime == true){
-        const newBook = new book((titleInput.value), (authorInput.value), (pageCount.value), (radioSec.value));
-        bookForm.style.display = 'none';
-        bookForm.style.zIndex = '0';
-        myLibrary.push(newBook);
-        addLibraryToPage();
-        }
-    })  
+    bookForm.addEventListener('submit', (handleForm))
 })
     
