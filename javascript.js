@@ -126,4 +126,4 @@ addBookButton.addEventListener('click', ()=>{
     bookForm.style.display = 'flex';
     bookForm.style.zIndex = '2';
     bookForm.addEventListener('submit', (handleForm));
-})
+});
