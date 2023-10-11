@@ -3,6 +3,11 @@
     src: url(fonts/ZipSonik-Italic.otf);
 }
 
+@font-face {
+    font-family: josefin;
+    src: url(fonts/JosefinSans-VariableFont_wght.ttf);
+}
+
 body {
     display: flex;
     width: 100vw;
@@ -17,18 +22,34 @@ body {
     z-index: 1;
     width: 75%;
     height: 75%;
-    background-color: rgb(188, 201, 213);
+    background-color: #daf5f08f;
     align-self: center;
     padding: 25px;
     border-radius: 20px;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+    border: 5px solid black;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.901);
 }
 
 .bookEntry {
     margin-bottom: 30px;
     padding: 10px 7px 10px 7px;
-    background-color: rgb(196, 253, 234);
+    background-color: #e3dff2;
     border: 2px solid gray;
     border-radius: 10px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: josefin;
+    font-weight: 500;
+    padding: 0px;
+    padding-top: 10px;
+}
+
+.bookEntry > h3 {
+    margin: 5px;
 }
 
 form{
@@ -36,10 +57,15 @@ form{
     display: none;
     position: absolute;
     width: 85%;
-    height: 95vh;
+    height: 94vh;
     align-items: center;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.newBook {
+    display: flex;
+    flex-direction: row;
 }
 
 .formInputContainer{
@@ -54,8 +80,8 @@ form{
 
 .formInputContainer > legend > h3{
     position: relative; 
-    top: 35px;
-    left: 15px;
+    top: 20px;
+    left: 25px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     
@@ -64,6 +90,7 @@ form{
 
 .formInputContainer > legend{
     display: flex;
+    height: 20px;
 }
 
 .formInputContainer > div{
@@ -154,4 +181,65 @@ fieldset > button:active {
     outline: 0px;
     box-shadow: 1px 1px black;
     background-color: #fee27c;
+}
+
+.delButton {
+    width: 60%;
+    height: 50%;
+    margin-top: 20px;
+    justify-self: center;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    background-color: #ff6b6b;
+    border: 2px solid black;
+    border-radius: 7px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.84);
+    margin: 0;
+    margin-bottom: 10px;
+    grid-column: 2;
+    font-size: 0.5em;
+}
+
+.delButton:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border: 2px solid black;
+    outline: 0px;
+    background-color: #eb6363;
+    box-shadow: 0px 0px black;
+}
+
+.buttonContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+
+}
+
+.buttonContainer > button {
+    border: 2px solid black;
+    grid-row: 1;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.84);
+    margin-top: 20px;
+    justify-self: center;
+    align-self: center;
+    width: 60%;
+    height: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: .5em;
+}
+
+.buttonContainer > button:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border: 2px solid black;
+    outline: 0px;
+    box-shadow: 0px 0px black;
 }
