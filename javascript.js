@@ -14,13 +14,12 @@ function book (title, author, pages, read) {
         else {
             read = 'not read yet';
         }
-        //myLibrary.push(`${title} ${author} ${pages} ${read}`);
         myLibrary.push(this);
         addLibraryToPage();
     }
 }
 let newArray = [];
-function addLibraryToPage() {
+function addLibraryToPage(){
     for (const books of myLibrary){
         if(!newArray.includes(books) && newBookTime == true){
         bookcount++;
@@ -34,13 +33,13 @@ function addLibraryToPage() {
         let buttons = document.createElement('div');
         let deleteButton = document.createElement('button');
         let readButton = document.createElement('button');
-        deleteButton.textContent = 'DELETE'
+        deleteButton.textContent = 'DELETE';
         buttons.setAttribute('class', 'buttonContainer');
         deleteButton.setAttribute('id', (`button${bookcount}`));
         deleteButton.setAttribute('class', (`delButton`));
-        newBookTitleHeader.textContent = 'Title:'
-        newBookAuthorHeader.textContent = 'Author:'
-        newBookPagesHeader.textContent = 'Pages:'
+        newBookTitleHeader.textContent = 'Title:';
+        newBookAuthorHeader.textContent = 'Author:';
+        newBookPagesHeader.textContent = 'Pages:';
         newBook.setAttribute('class', 'bookEntry');
         newBook.setAttribute('id', (`${bookcount}`));
         newBookTitle.textContent = (books.title);
@@ -66,9 +65,9 @@ function addLibraryToPage() {
             readButton.textContent = radioSelection;
             readButton.style.backgroundColor = ('#ffdf6d');
             readStatus = 'notread';
-            readButton.style.fontSize = ('.45em')
+            readButton.style.fontSize = ('.45em');
         }
-        buttons.appendChild(readButton)
+        buttons.appendChild(readButton);
         newBook.appendChild(buttons);
         readButton.addEventListener('click', ()=>{
             if (readStatus == 'read'){
@@ -83,32 +82,18 @@ function addLibraryToPage() {
                 readButton.style.fontSize = ('.45em')
             }
         })
-        //newBook.textContent = (`${books.title} ${books.author} ${books.pages} ${books.read}`);
         indexContainer.appendChild(newBook);
         document.getElementById(`button${bookcount}`).addEventListener('click', ()=> {
             let deleteBook = (deleteButton.id).split("");
             deleteBook = deleteBook[deleteBook.length - 1];
             document.getElementById(deleteBook).remove();
 
-        })
+        });
         newArray.push(books);
         newBookTime = false;
         }
     }
 }
-/*
-const theHobbit = new book('The Hobbit', 'J.R.R Tolken', 295, false);
-const theHobbit2 = new book('The Hobbit2', 'J.R.R Tolkennn', 1295, true);
-theHobbit.info();
-theHobbit2.info();
-const theHobbit3 = new book('The Hobbit3', 'J.R.R Tolkennn', 1295, true);
-theHobbit3.info();
-function bookInput() {
-    const newBook = new book(prompt("book:"));
-    myLibrary.push(newBook);
-    addLibraryToPage();
-}
-*/
 let radioSelection;
 const bookForm = document.querySelector('.bookForm');
 const addBookButton = document.querySelector('.addBookButton');
@@ -140,6 +125,5 @@ addBookButton.addEventListener('click', ()=>{
     newBookTime = true;
     bookForm.style.display = 'flex';
     bookForm.style.zIndex = '2';
-    bookForm.addEventListener('submit', (handleForm))
+    bookForm.addEventListener('submit', (handleForm));
 })
-
